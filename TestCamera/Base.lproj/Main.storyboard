@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestCamera" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,47 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgd-Qo-bOS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7PM-BF-ZBu">
+                                <rect key="frame" x="295" y="567" width="80" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="DAU-55-A0J"/>
+                                    <constraint firstAttribute="height" constant="100" id="PxK-QZ-1E3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xom-Ac-90t">
+                                <rect key="frame" x="0.0" y="567" width="295" height="100"/>
+                                <state key="normal" title="SNAP"/>
+                                <connections>
+                                    <action selector="didPressTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ImN-Mq-Zdz"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7PM-BF-ZBu" secondAttribute="bottom" id="45L-bl-iRd"/>
+                            <constraint firstItem="7PM-BF-ZBu" firstAttribute="leading" secondItem="Xom-Ac-90t" secondAttribute="trailing" id="LID-D8-AWA"/>
+                            <constraint firstItem="7PM-BF-ZBu" firstAttribute="top" secondItem="cgd-Qo-bOS" secondAttribute="bottom" id="Ma7-IE-HE7"/>
+                            <constraint firstItem="Xom-Ac-90t" firstAttribute="top" secondItem="cgd-Qo-bOS" secondAttribute="bottom" id="ODq-ww-QRe"/>
+                            <constraint firstAttribute="trailing" secondItem="7PM-BF-ZBu" secondAttribute="trailing" id="SXG-8c-VKt"/>
+                            <constraint firstAttribute="trailing" secondItem="cgd-Qo-bOS" secondAttribute="trailing" id="THM-Qk-P2G"/>
+                            <constraint firstItem="cgd-Qo-bOS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TTx-jY-2CF"/>
+                            <constraint firstItem="Xom-Ac-90t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UMD-yo-Dlz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xom-Ac-90t" secondAttribute="bottom" id="bNi-PF-Ute"/>
+                            <constraint firstItem="cgd-Qo-bOS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p9Q-xR-9yK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="capturedImage" destination="7PM-BF-ZBu" id="g45-7H-PKn"/>
+                        <outlet property="previewView" destination="cgd-Qo-bOS" id="98e-aI-CKX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
